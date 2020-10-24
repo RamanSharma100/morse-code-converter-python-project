@@ -1,2 +1,2 @@
 # morse-code-converter-python-project
-this is the morse code converter project for our CA
+This is the morse code converter project for our Python (INT213) CA
