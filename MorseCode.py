@@ -1,5 +1,5 @@
 # working and developing on python 3.8.6
- 
+
 from tkinter import Tk
 from tkinter import *
 import sys
@@ -7,6 +7,7 @@ import sys
 tapetom = None
 tapmtoe = None
 
+# Morse code values
 def morseCodeWin():
 
     windowIndex2 = Tk()
@@ -78,6 +79,7 @@ def guest():
     etomButton.grid(row = 0, column = 1)
 
 
+#English to Morse Code Converter Code
 def English_to_Morse():
 
     global tapetom
@@ -103,7 +105,7 @@ def English_to_Morse():
     value = Entry(etomFrame, textvariable = entry )
     value.grid(row = 1, column = 1, pady = (50,0))
 
-    getvalue = Entry(etomFrame, textvariable = get)########################################
+    getvalue = Entry(etomFrame, textvariable = get)#####################from here Raman you have to fetch the English data , from morse to english converter###################
     getvalue.grid(row = 2, column = 1, pady = (10,0))
 
     Convert = Button(etomFrame, text = "Convert", bg = '#000000', fg = '#fff', command = sys.exit)
@@ -125,7 +127,7 @@ def English_to_Morse():
     code.grid(row = 4, column = 1, pady = (10,0))
     
 
-
+# Morse to English code converter code
 def Morse_to_English():
 
     global tapmtoe
@@ -151,7 +153,7 @@ def Morse_to_English():
     value = Entry(mtoeFrame, textvariable = entry)
     value.grid(row = 1, column = 1, pady = (50,0))
 
-    getvalue = Entry(mtoeFrame, textvariable = get)########################################
+    getvalue = Entry(mtoeFrame, textvariable = get)################From here Raman you have to Fetch Morse value in Morse to English converter########################
     getvalue.grid(row = 2, column = 1, pady = (10,0))
     
     Convert = Button(mtoeFrame, text = "Convert", bg = '#000000', fg = '#fff', command = sys.exit)
@@ -276,8 +278,6 @@ def signupForm():
     passwordentry.grid(row = 4, column = 1, pady = (0,5))
     confirmpassentry.grid(row = 5, column = 1, pady = (0,5))
 
-    #     f.write(f"{namevalue.get(), phonenumbervalue.get(), emailvalue.get(), passwordvalue.get(), termsvalue.get()}\n")
-
     def goBack():
         signupHead.grid_remove()
         signupFrame.grid_remove()
@@ -288,7 +288,6 @@ def signupForm():
         bottomFrame.grid()
 
     
-    #buttonFont = font.Font(size=10)
     submit = Button(signupFrame, text = "Submit", font = "10", bg = '#000000', fg = '#fff', command = goBack)
     submit.grid(row = 6, column = 0, columnspan = 2, ipadx = 8, ipady = 2, pady = (20,0))
     goBack = Button(signupFrame, text = "Go back", font = "10", bg = '#000000', fg = '#fff', command = goBack)
