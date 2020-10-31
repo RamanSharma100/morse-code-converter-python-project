@@ -145,13 +145,15 @@ def English_to_Morse():
             error = 0
             text = ''
             for i in entry.get():
-                try:
-                    #here we have passed key and setting the value to text, by comparing it in data dictionary.
-                    text = text + data[i.capitalize()] + ' '
-                except ValueError:
-                    messagebox.showwarning("Warning","Something went wrong while getting the data")
-                    error = 1
-                    break
+                if i == ' ':
+                    text = text + i
+                else:
+                    try:
+                        text = text + data[i.capitalize()] + ' '
+                    except KeyError:
+                        messagebox.showwarning("Warning","special characters are not allowed")
+                        error = 1
+                        break
             if error == 0:
                 label3.grid()
                 getvalue.grid()
