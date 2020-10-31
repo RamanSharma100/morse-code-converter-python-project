@@ -75,8 +75,8 @@ def morseCodeWin():
     windowIndex2.mainloop()
 
 # if user not want to login or register 
-# this will also used for logined user to move to converter options
-def guest():
+# this will be also used for logged-in user to move to converter options
+def guest(): #guests do not have access to History
     head.grid_remove()
     loginButton.grid_remove()
     signupButton.grid_remove()
@@ -102,7 +102,7 @@ def English_to_Morse():
     #logic
     def convertion():
         if(entry.get() == ''):
-            messagebox.showwarning("Warning","Please fill in all fields!!")
+            messagebox.showwarning("Warning","Please fill all the fields!!")
         else:
             data = {
                 "A" : ".-",
@@ -160,7 +160,7 @@ def English_to_Morse():
                 get.set(text)
                 if registered == True:
                     #connect databse first
-                    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
+                    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')#databse credentials depends on a User
                     #checking if databse is connected or not
                     if(db):
                         myCursor = db.cursor()
@@ -180,11 +180,11 @@ def English_to_Morse():
                         else:
                             myCursor.close()
                             db.close()
-                            messagebox.showwarning("Success","Something went wrong while adding history!!")
+                            messagebox.showwarning("Warning","Something went wrong while adding to history!!")
                     else:
                         messagebox.showwarning("Warning","Database is not connected!!")
                 else:
-                    messagebox.showinfo("Info","If you want to save this in your history please try conversion again after loging in to this application!!")
+                    messagebox.showinfo("Info","If you want to save this in your history please try conversion again after login, to this application!!")
             else:
                 entry.set("")
 
@@ -255,10 +255,10 @@ def English_to_Morse():
 
 def Morse_to_English():
 
-    messagebox.showinfo("Info","Please add space after each character morser code to get correct result!!")
+    messagebox.showinfo("Info","Please add space after morse code value of each character to get correct result!!")
     def convertion():
         if(entry.get() == ''):
-            messagebox.showwarning("Warning","Please fill all fields!!")
+            messagebox.showwarning("Warning","Please fill all the fields!!")
         elif entry.get().find(" ") == -1:
             messagebox.showwarning("Warning","Please add space after each morse code value!!")
         else:
@@ -306,7 +306,7 @@ def Morse_to_English():
                 try:
                     text = text + list(data.keys())[list(data.values()).index(i)] #conversion
                 except ValueError:
-                    messagebox.showwarning("Warning","Please enter the valid morser code")
+                    messagebox.showwarning("Warning","Please enter the valid morse code")
                     error = 1
                     break
             if error == 0:
@@ -316,7 +316,7 @@ def Morse_to_English():
                 get.set(text)
                 if registered == True:
                     #connect databse first
-                    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
+                    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')#database credentials depends on user
                     #checking if databse is connected or not
                     if(db):
                         myCursor = db.cursor()
@@ -340,7 +340,7 @@ def Morse_to_English():
                     else:
                         messagebox.showwarning("Warning","Database is not connected!!")
                 else:
-                    messagebox.showinfo("Info","If you want to save this in your history, please try conversion again after login to this application!!")
+                    messagebox.showinfo("Info","If you want to save this in your history, please try conversion again after login, to this application!!")
             else:
                 entry.set("")
 
@@ -464,7 +464,7 @@ def loginForm():
                 errors = errors + 1
             if(errors == 0):
                 # if there is no error connect to the database
-                db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
+                db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')#database credentials depends on user
                 # checking if database is connected or not
                 if(db):
                     # creating database cursor 
@@ -561,7 +561,7 @@ def signupForm():
             #checking if errors are there or not
             if(errors == 0):
                 # if there is no error connect to the database
-                db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
+                db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')#database credentials depends on user
                 # checking if database is connected or not
                 if(db):
                     # creating database cursor 
@@ -666,7 +666,7 @@ def logout():
 # watch history for logined user
 def history():
     # connecting to database 
-    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
+    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')#database credentials depends on user
     if(db):
         # creating cursor 
         myCursor = db.cursor()
@@ -785,7 +785,7 @@ def mainWindow():
     bottomFrame = Frame()
     bottomFrame.grid(row = 3, column = 0, pady = (90,0))
 
-    foot = Label(bottomFrame, text = "Morse Converter by Akash Singh Panwar, Aman Kumar, Raman Sharma")
+    foot = Label(bottomFrame, text = "Morse Code Converter by Akash Singh Panwar, Aman Kumar, Raman Sharma")
     foot.grid(row = 3, column = 0)
 
     def on_closing():
