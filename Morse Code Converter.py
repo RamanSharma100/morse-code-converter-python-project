@@ -160,7 +160,7 @@ def English_to_Morse():
                 get.set(text)
                 if registered == True:
                     #connect databse first
-                    db = mysql.connector.connect(host='localhost',user='root',password='Akku2017@123',database='pythonproject')
+                    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
                     #checking if databse is connected or not
                     if(db):
                         myCursor = db.cursor()
@@ -316,7 +316,7 @@ def Morse_to_English():
                 get.set(text)
                 if registered == True:
                     #connect databse first
-                    db = mysql.connector.connect(host='localhost',user='root',password='Akku2017@123',database='pythonproject')
+                    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
                     #checking if databse is connected or not
                     if(db):
                         myCursor = db.cursor()
@@ -464,7 +464,7 @@ def loginForm():
                 errors = errors + 1
             if(errors == 0):
                 # if there is no error connect to the database
-                db = mysql.connector.connect(host='localhost',user='root',password='Akku2017@123',database='pythonproject')
+                db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
                 # checking if database is connected or not
                 if(db):
                     # creating database cursor 
@@ -561,7 +561,7 @@ def signupForm():
             #checking if errors are there or not
             if(errors == 0):
                 # if there is no error connect to the database
-                db = mysql.connector.connect(host='localhost',user='root',password='Akku2017@123',database='pythonproject')
+                db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
                 # checking if database is connected or not
                 if(db):
                     # creating database cursor 
@@ -666,7 +666,7 @@ def logout():
 # watch history for logined user
 def history():
     # connecting to database 
-    db = mysql.connector.connect(host='localhost',user='root',password='Akku2017@123',database='pythonproject')
+    db = mysql.connector.connect(host='localhost',user='root',password='<your_myssql_password>',database='pythonproject')
     if(db):
         # creating cursor 
         myCursor = db.cursor()
